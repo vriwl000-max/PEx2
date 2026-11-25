@@ -1,6 +1,75 @@
-<h1>Lista de Empleados</h1>
-<a href="/empleados/crear/">Crear Empleado</a>
-<hr>
-{% for e in empleados %}
-  <p>{{ e.usuario.first_name }} {{ e.usuario.last_name }} - {{ e.departamento }} - {{ e.cargo }}</p>
-{% endfor %}
+
+{% extends "base.html" %}
+
+{% block title %}Empleados | TalentHub{% endblock %}
+
+{% block content %}
+
+<div class="page-heading heading-row">
+    <div>
+        <span class="eyebrow">GESTIÓN DE PERSONAL</span>
+        <h1>Empleados</h1>
+        <p>Consulta y administra los empleados registrados.</p>
+    </div>
+
+    <a href="{% url 'empleado_crear' %}" class="primary-button">
+        + Nuevo empleado
+    </a>
+</div>
+
+<section class="content-card">
+
+    <form method="get" class="search-row">
+        <input type="search"
+               name="buscar"
+               value="{{ request.GET.buscar }}"
+               placeholder="Buscar empleado...">
+
+        <button type="submit" class="secondary-button">
+            Buscar
+        </button>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table align-middle">
+
+            <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for empleado in empleados %}
+                <tr>
+                    <td>{{ empleado.cedula }}</td>
+                    <td>{{ empleado.nombres }}</td>
+                    <td>{{ empleado.apellidos }}</td>
+                    <td>{{ empleado.correo }}</td>
+                    <td>
+                        <a class="action-edit"
+                           href="{% url 'empleado_editar' empleado.pk %}">
+                            Editar
+                        </a>
+                    </td>
+                </tr>
+
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="empty-state">
+                        No hay empleados registrados.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</section>
+
+{% endblock %}
