@@ -1,4 +1,6 @@
 from django.contrib.auth.models import AbstractUser
+from decimal import Decimal
+from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -35,3 +37,40 @@ class Empleado(models.Model):
 
     def __str__(self):
         return f"{self.usuario.first_name} {self.usuario.last_name}"
+
+
+class Contrato(models.Model):
+    TIPOS_CONTRATO = [
+        ('INDEFINIDO', 'Indefinido'),
+        ('PLAZO_FIJO', 'Plazo Fijo'),
+        ('PRUEBA', 'Período de Prueba'),
+        ('OCASIONAL', 'Ocasional'),
+    ]
+    empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE, limit_choices_to={'estado': True})
+    tipo_contrato = models.CharField(max_length=20, choices=TIPOS_CONTRATO)
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField(null=True, blank=True)
+    salario = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'), message="El salario debe ser mayor a cero.")])
+    estado = models.BooleanField(default=True)  # Eliminado lógico
+
+    def __str__(self):
+        return f"Contrato {self.tipo_contrato} - {self.empleado}"
+
+
+class Asistencia(models.Model):
+    ESTADOS_ASISTENCIA = [
+        ('PRESENTE', 'Presente'),
+        ('ATRASO', 'Atraso'),
+        ('FALTA', 'Falta Injustificada'),
+        ('PERMISO', 'Permiso Médico / Justificado'),
+    ]
+    empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE, limit_choices_to={'estado': True})
+    fecha = models.DateField()
+    hora_entrada = models.TimeField()
+    hora_salida = models.TimeField(null=True, blank=True)
+    observacion = models.CharField(max_length=200, blank=True)
+    tipo_asistencia = models.CharField(max_length=20, choices=ESTADOS_ASISTENCIA, default='PRESENTE')
+    estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.empleado} - {self.fecha} ({self.tipo_asistencia})"

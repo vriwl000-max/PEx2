@@ -15,3 +15,4 @@ class CargoForm(forms.ModelForm):
     class Meta:
         model = Cargo
         fields = ['nombre']
+
