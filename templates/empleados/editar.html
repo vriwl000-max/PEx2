@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+
+{% block title %}Editar empleado | TalentHub{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <span class="eyebrow">GESTIÓN DE PERSONAL / EMPLEADOS</span>
+    <h1>Editar empleado</h1>
+    <p>Actualiza la información del empleado seleccionado.</p>
+</div>
+
+<section class="content-card form-card">
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        Revisa los campos del formulario.
+    </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="django-form">
+            {{ form.as_p }}
+        </div>
+
+        <div class="form-actions">
+            <a href="{% url 'empleado_lista' %}"
+               class="secondary-button">
+                Cancelar
+            </a>
+
+            <button type="submit" class="primary-button">
+                Guardar cambios
+            </button>
+        </div>
+    </form>
+
+</section>
+
+{% endblock %}
