@@ -1,28 +1,41 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Empleado, Departamento, Cargo
-from .forms import EmpleadoForm, DepartamentoForm, CargoForm
+from .models import Empleado
+from .forms import EmpleadoForm
+from django.db.models import Q
 
-def home(request):
-    return render(request, 'home.html')
-
-def lista_empleados(request):
+def empleado_listar(request):
+    buscar = request.GET.get('buscar', '')
     empleados = Empleado.objects.all()
-    return render(request, 'empleados/lista.html', {'empleados': empleados})
 
-def crear_empleado(request):
-    form = EmpleadoForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('lista_empleados')
-    return render(request, 'empleados/crear.html', {'form': form})
+    if buscar:
+        empleados = empleados.filter(
+            Q(cedula__icontains=buscar) |
+            Q(nombres__icontains=buscar) |
+            Q(apellidos__icontains=buscar) |
+            Q(correo__icontains=buscar)
+        )
 
-def lista_departamentos(request):
-    departamentos = Departamento.objects.all()
-    return render(request, 'departamentos/lista.html', {'departamentos': departamentos})
+    return render(request, 'empleado_list.html', {
+        'empleados': empleados
+    })
 
-def crear_departamento(request):
-    form = DepartamentoForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('lista_departamentos')
-    return render(request, 'departamentos/crear.html', {'form': form})
+def empleado_crear(request):
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('empleado_listar')
+    else:
+        form = EmpleadoForm()
+    return render(request, 'empleado_form.html', {'form': form})
+
+def empleado_editar(request, pk):
+    empleado = get_object_or_404(Empleado, pk=pk)
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST, instance=empleado)
+        if form.is_valid():
+            form.save()
+            return redirect('empleado_listar')
+    else:
+        form = EmpleadoForm(instance=empleado)
+    return render(request, 'empleado_form.html', {'form': form})
