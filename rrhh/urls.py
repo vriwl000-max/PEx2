@@ -34,3 +34,4 @@ urlpatterns = [
     path('asistencias/crear/', views.crear_asistencia, name='crear_asistencia'),
     path('asistencias/editar/<int:id>/', views.editar_asistencia, name='editar_asistencia'),
     path('asistencias/eliminar/<int:id>/', views.eliminar_asistencia, name='eliminar_asistencia'),
+]

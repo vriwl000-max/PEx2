@@ -222,10 +222,12 @@ def eliminar_contrato(request, id):
 #ASISTENCIA VIEWS
 ##############################
 
+@login_required(login_url='login')
 def lista_asistencias(request):
     asistencias = Asistencia.objects.filter(estado=True)
-    return render(request, 'asistencias/lista.html', {'asistencias': asistencias})
+    return render(request, 'asistencia/listar.html', {'asistencias': asistencias, 'modulo': 'asistencias'})
 
+@login_required(login_url='login')
 def crear_asistencia(request):
     form = AsistenciaForm(request.POST or None)
     if form.is_valid():

@@ -46,7 +46,7 @@ class Contrato(models.Model):
         ('PRUEBA', 'Período de Prueba'),
         ('OCASIONAL', 'Ocasional'),
     ]
-    empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE, limit_choices_to={'estado': True})
+    empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE, limit_choices_to={'activo': True})
     tipo_contrato = models.CharField(max_length=20, choices=TIPOS_CONTRATO)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField(null=True, blank=True)
@@ -64,7 +64,7 @@ class Asistencia(models.Model):
         ('FALTA', 'Falta Injustificada'),
         ('PERMISO', 'Permiso Médico / Justificado'),
     ]
-    empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE, limit_choices_to={'estado': True})
+    empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE, limit_choices_to={'activo': True})
     fecha = models.DateField()
     hora_entrada = models.TimeField()
     hora_salida = models.TimeField(null=True, blank=True)
