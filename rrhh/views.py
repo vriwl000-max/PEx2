@@ -105,6 +105,7 @@ def crear_departamento(request):
     return render(request, 'departamentos/crear.html', {'form': form})
 
 def editar_departamento(request, pk):
+<<<<<<< HEAD
 
     departamento = get_object_or_404(
         Departamento,
@@ -156,6 +157,33 @@ def eliminar_departamento(
         }
     )
 
+=======
+    departamento = Departamento.objects.filter(pk=pk, estado=True).first()
+    if not departamento:
+        messages.error(request, "Registro no encontrado.")
+        return redirect('lista_departamentos')
+
+    form = DepartamentoForm(request.POST or None, instance=departamento)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Registro actualizado correctamente.")
+        return redirect('lista_departamentos')
+    if request.method == 'POST':
+        messages.error(request, "Error en el formulario.")
+    return render(request, 'departamentos/editar.html', {'form': form, 'modulo': 'departamentos'})
+
+@login_required(login_url='login')
+def eliminar_departamento(request, pk):
+    departamento = Departamento.objects.filter(pk=pk, estado=True).first()
+    if not departamento:
+        messages.error(request, "Registro no encontrado.")
+        return redirect('lista_departamentos')
+
+    departamento.estado = False
+    departamento.save()
+    messages.success(request, "Registro eliminado correctamente.")
+    return redirect('lista_departamentos')
+>>>>>>> da31dbbcff4d7f1543e42b3f56fb758df6e2d0e7
 ####################################
 #CARGO VIEWS
 ################################
@@ -261,10 +289,12 @@ def eliminar_contrato(request, id):
 #ASISTENCIA VIEWS
 ##############################
 
+@login_required(login_url='login')
 def lista_asistencias(request):
     asistencias = Asistencia.objects.filter(estado=True)
-    return render(request, 'asistencias/crear.html', {'asistencias': asistencias})
+    return render(request, 'asistencia/listar.html', {'asistencias': asistencias, 'modulo': 'asistencias'})
 
+@login_required(login_url='login')
 def crear_asistencia(request):
     form = AsistenciaForm(request.POST or None)
     if form.is_valid():
