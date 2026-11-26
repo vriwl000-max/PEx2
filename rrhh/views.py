@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Empleado, Departamento, Cargo
-from .forms import EmpleadoForm, DepartamentoForm, CargoForm
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .models import Empleado, Departamento, Cargo, Contrato, Asistencia
+from .forms import EmpleadoForm, DepartamentoForm, CargoForm, ContratoForm, AsistenciaForm
 
 def home(request):
     return render(request, 'home.html')
@@ -26,3 +28,13 @@ def crear_departamento(request):
         form.save()
         return redirect('lista_departamentos')
     return render(request, 'departamentos/crear.html', {'form': form})
+
+@login_required(login_url='login')
+def lista_contratos(request):
+    contratos = Contrato.objects.filter(estado=True)
+    return render(request, 'contratos/lista.html', {'contratos': contratos})
+
+@login_required(login_url='login')
+def lista_asistencias(request):
+    asistencias = Asistencia.objects.filter(estado=True)
+    return render(request, 'asistencias/lista.html', {'asistencias': asistencias})
