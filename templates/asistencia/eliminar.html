@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Eliminar Asistencia | TalentHub RRHH
+{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / GESTIÓN / ASISTENCIAS</div>
+            <h1>Confirmar Eliminación</h1>
+            <p>Esta acción desactivará el registro del listado principal.</p>
+        </div>
+    </section>
+
+    <section class="data-panel">
+        <p>¿Estás seguro de que deseas eliminar el registro de asistencia de <strong>{{ asistencia.empleado }}</strong> correspondiente a la fecha <strong>{{ asistencia.fecha|date:"d/m/Y" }}</strong>?</p>
+
+        <form method="post" style="margin-top: 20px; display: flex; gap: 10px;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" style="background-color: #dc3545;">Sí, eliminar registro</button>
+            <a href="{% url 'lista_asistencias' %}" class="btn btn-ghost">Cancelar</a>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Eliminar Cargo | TalentHub RRHH
+{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / GESTIÓN / CARGOS</div>
+            <h1>Confirmar Eliminación</h1>
+            <p>Esta acción desactivará el cargo del listado principal.</p>
+        </div>
+    </section>
+
+    <section class="data-panel">
+        <p>¿Estás seguro de que deseas eliminar el cargo <strong>{{ cargo.nombre }}</strong>?</p>
+
+        <form method="post" style="margin-top: 20px; display: flex; gap: 10px;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" style="background-color: #dc3545;">Sí, eliminar cargo</button>
+            <a href="{% url 'lista_cargos' %}" class="btn btn-ghost">Cancelar</a>
+        </form>
+    </section>
+{% endblock %}

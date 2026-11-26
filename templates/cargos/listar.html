@@ -9,9 +9,9 @@
         <div>
             <div class="eyebrow">TALENTHUB / GESTIÓN / CARGOS</div>
             <h1>Gestión de Cargos</h1>
-            <p>Puestos, departamentos y remuneraciones referenciales.</p>
+            <p>Puestos y roles disponibles dentro de la organización.</p>
         </div>
-        <a class="btn btn-primary" href="{% url 'crear' 'cargos' %}">
+        <a class="btn btn-primary" href="{% url 'crear_cargo' %}">
             ＋ Nuevo cargo
         </a>
     </section>
@@ -19,40 +19,14 @@
     <section class="stats-grid">
         <article class="stat-card">
             <span class="stat-label">REGISTROS ENCONTRADOS</span>
-            <strong>{{ total }}</strong>
-            <small>Coincidencias de la consulta</small>
-        </article>
-        <article class="stat-card">
-            <span class="stat-label">{{ etiqueta_secundaria }}</span>
-            <strong>{{ activos }}</strong>
-            <small>{{ ayuda_secundaria }}</small>
-        </article>
-        <article class="stat-card">
-            <span class="stat-label">PÁGINA ACTUAL</span>
-            <strong>{{ page_obj.number }}</strong>
-            <small>De {{ page_obj.paginator.num_pages|default:1 }} página(s)</small>
+            <strong>{{ cargos|length }}</strong>
+            <small>Cargos activos en el sistema</small>
         </article>
     </section>
 
     <section class="data-panel">
         <div class="toolbar">
-            <form class="search-form" method="get">
-                <span class="search-icon" aria-hidden="true">⌕</span>
-                <input
-                    type="search"
-                    name="q"
-                    value="{{ q }}"
-                    placeholder="Buscar cargos por nombre, descripción..."
-                    aria-label="Buscar cargos"
-                >
-                <button class="btn btn-search" type="submit">Buscar</button>
-                {% if q %}
-                    <a class="btn btn-ghost" href="{% url 'listado' 'cargos' %}">
-                        Limpiar
-                    </a>
-                {% endif %}
-            </form>
-            <span class="total-chip">{{ total }} registro(s)</span>
+            <span class="total-chip">{{ cargos|length }} registro(s)</span>
         </div>
 
         <div class="table-scroll">
@@ -60,20 +34,18 @@
                 <thead>
                     <tr>
                         <th>Cargo</th>
-                        <th>Departamento</th>
-                        <th>Salario referencial</th>
+                        <th>Descripción</th>
                         <th>Estado</th>
                         <th class="actions-head">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for item in page_obj %}
+                    {% for item in cargos %}
                         <tr>
                             <td>{{ item.nombre|default:"—"|truncatechars:55 }}</td>
-                            <td>{{ item.departamento|default:"—"|truncatechars:55 }}</td>
-                            <td>${{ item.salario_referencial|floatformat:2 }}</td>
+                            <td>{{ item.descripcion|default:"Sin descripción"|truncatechars:75 }}</td>
                             <td>
-                                <span class="status-pill {% if item.estado == 'Activo' or item.estado == True %}status-active{% else %}status-muted{% endif %}">
+                                <span class="status-pill {% if item.estado %}status-active{% else %}status-muted{% endif %}">
                                     {% if item.estado %}
                                         Activo
                                     {% else %}
@@ -84,50 +56,32 @@
                             <td class="row-actions">
                                 <a
                                     class="icon-action edit-action"
-                                    href="{% url 'editar' 'cargos' item.pk %}"
+                                    href="{% url 'editar_cargo' item.id %}"
                                     title="Editar"
                                     aria-label="Editar cargo"
                                 >
                                     ✎
                                 </a>
-                                <form
-                                    method="post"
-                                    action="{% url 'eliminar' 'cargos' item.pk %}"
-                                    onsubmit="return confirm('¿Seguro que deseas eliminar este registro?')"
+                                <a
+                                    class="icon-action delete-action"
+                                    href="{% url 'eliminar_cargo' item.id %}"
+                                    title="Eliminar"
+                                    aria-label="Eliminar cargo"
                                 >
-                                    {% csrf_token %}
-                                    <button
-                                        class="icon-action delete-action"
-                                        type="submit"
-                                        title="Eliminar"
-                                        aria-label="Eliminar cargo"
-                                    >
-                                        ⌫
-                                    </button>
-                                </form>
+                                    ⌫
+                                </a>
                             </td>
                         </tr>
                     {% empty %}
                         <tr>
-                            <td colspan="5" class="empty-state">
+                            <td colspan="4" class="empty-state">
                                 <strong>No hay registros para mostrar</strong>
-                                <span>Prueba otra búsqueda o crea un nuevo registro.</span>
+                                <span>Crea un nuevo cargo para comenzar.</span>
                             </td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-
-        <div class="table-bottom">
-            <span>
-                Mostrando
-                {% if total %}
-                    {{ page_obj.start_index }}–{{ page_obj.end_index }} de
-                {% endif %}
-                {{ total }} registros
-            </span>
-            {% include 'principal/paginacion.html' %}
         </div>
     </section>
 {% endblock %}

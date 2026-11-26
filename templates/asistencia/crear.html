@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar Asistencia | TalentHub RRHH
+{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / GESTIÓN / ASISTENCIAS</div>
+            <h1>Registrar Asistencia</h1>
+            <p>Ingresa la jornada laboral y novedades del empleado.</p>
+        </div>
+        <a class="btn btn-ghost" href="{% url 'lista_asistencias' %}">
+            ← Volver al listado
+        </a>
+    </section>
+
+    <section class="data-panel">
+        <form method="post" class="crud-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            {{ form.as_p }}
+
+            <div class="form-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                <button type="submit" class="btn btn-primary">Guardar asistencia</button>
+                <a href="{% url 'lista_asistencias' %}" class="btn btn-ghost">Cancelar</a>
+            </div>
+        </form>
+    </section>
+{% endblock %}
