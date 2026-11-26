@@ -11,48 +11,22 @@
             <h1>Gestión de Asistencias</h1>
             <p>Registro diario de entradas, salidas y novedades.</p>
         </div>
-        <a class="btn btn-primary" href="{% url 'crear' 'asistencias' %}">
-            ＋ Registrar asistencia
+        <a class="btn btn-primary" href="{% url 'crear_asistencia' %}">
+            + Registrar asistencia
         </a>
     </section>
 
     <section class="stats-grid">
         <article class="stat-card">
             <span class="stat-label">REGISTROS ENCONTRADOS</span>
-            <strong>{{ total }}</strong>
-            <small>Coincidencias de la consulta</small>
-        </article>
-        <article class="stat-card">
-            <span class="stat-label">{{ etiqueta_secundaria }}</span>
-            <strong>{{ activos }}</strong>
-            <small>{{ ayuda_secundaria }}</small>
-        </article>
-        <article class="stat-card">
-            <span class="stat-label">PÁGINA ACTUAL</span>
-            <strong>{{ page_obj.number }}</strong>
-            <small>De {{ page_obj.paginator.num_pages|default:1 }} página(s)</small>
+            <strong>{{ asistencias|length }}</strong>
+            <small>Asistencias activas en el sistema</small>
         </article>
     </section>
 
     <section class="data-panel">
         <div class="toolbar">
-            <form class="search-form" method="get">
-                <span class="search-icon" aria-hidden="true">⌕</span>
-                <input
-                    type="search"
-                    name="q"
-                    value="{{ q }}"
-                    placeholder="Buscar asistencias por nombre, descripción..."
-                    aria-label="Buscar asistencias"
-                >
-                <button class="btn btn-search" type="submit">Buscar</button>
-                {% if q %}
-                    <a class="btn btn-ghost" href="{% url 'listado' 'asistencias' %}">
-                        Limpiar
-                    </a>
-                {% endif %}
-            </form>
-            <span class="total-chip">{{ total }} registro(s)</span>
+            <span class="total-chip">{{ asistencias|length }} registro(s)</span>
         </div>
 
         <div class="table-scroll">
@@ -63,67 +37,49 @@
                         <th>Fecha</th>
                         <th>Entrada</th>
                         <th>Salida</th>
-                        <th>Tipo</th>
+                        <th>Estado</th>
                         <th>Observación</th>
                         <th class="actions-head">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for item in page_obj %}
+                    {% for item in asistencias %}
                         <tr>
-                            <td>{{ item.empleado|default:"—"|truncatechars:55 }}</td>
-                            <td>{{ item.fecha|date:"d/m/Y"|default:"—" }}</td>
-                            <td>{{ item.hora_entrada|time:"H:i"|default:"—" }}</td>
-                            <td>{{ item.hora_salida|time:"H:i"|default:"—" }}</td>
-                            <td>{{ item.tipo|default:"—"|truncatechars:55 }}</td>
-                            <td>{{ item.observacion|default:"—"|truncatechars:55 }}</td>
+                            <td>{{ item.empleado|default:"-" }}</td>
+                            <td>{{ item.fecha|date:"d/m/Y"|default:"-" }}</td>
+                            <td>{{ item.hora_entrada|time:"H:i"|default:"-" }}</td>
+                            <td>{{ item.hora_salida|time:"H:i"|default:"-" }}</td>
+                            <td>{{ item.estado_asistencia|default:"-" }}</td>
+                            <td>{{ item.observacion|default:"-"|truncatechars:55 }}</td>
                             <td class="row-actions">
                                 <a
                                     class="icon-action edit-action"
-                                    href="{% url 'editar' 'asistencias' item.pk %}"
+                                    href="{% url 'editar_asistencia' item.id %}"
                                     title="Editar"
                                     aria-label="Editar asistencia"
                                 >
                                     ✎
                                 </a>
-                                <form
-                                    method="post"
-                                    action="{% url 'eliminar' 'asistencias' item.pk %}"
-                                    onsubmit="return confirm('¿Seguro que deseas eliminar este registro?')"
+                                <a
+                                    class="icon-action delete-action"
+                                    href="{% url 'eliminar_asistencia' item.id %}"
+                                    title="Eliminar"
+                                    aria-label="Eliminar asistencia"
                                 >
-                                    {% csrf_token %}
-                                    <button
-                                        class="icon-action delete-action"
-                                        type="submit"
-                                        title="Eliminar"
-                                        aria-label="Eliminar asistencia"
-                                    >
-                                        ⌫
-                                    </button>
-                                </form>
+                                    ☒
+                                </a>
                             </td>
                         </tr>
                     {% empty %}
                         <tr>
                             <td colspan="7" class="empty-state">
                                 <strong>No hay registros para mostrar</strong>
-                                <span>Prueba otra búsqueda o crea un nuevo registro.</span>
+                                <span>Crea un nuevo registro de asistencia para comenzar.</span>
                             </td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-
-        <div class="table-bottom">
-            <span>
-                Mostrando
-                {% if total %}
-                    {{ page_obj.start_index }}–{{ page_obj.end_index }} de
-                {% endif %}
-                {{ total }} registros
-            </span>
-            {% include 'principal/paginacion.html' %}
         </div>
     </section>
 {% endblock %}

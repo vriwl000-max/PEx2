@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
+<<<<<<< HEAD
 Editar Cargo
 {% endblock %}
 
@@ -31,4 +32,39 @@ Editar Cargo
 
 </section>
 
+=======
+    Editar Cargo | TalentHub RRHH
+{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / GESTIÓN / CARGOS</div>
+            <h1>Editar Cargo</h1>
+            <p>Modifica el nombre o la descripción del puesto.</p>
+        </div>
+        <a class="btn btn-ghost" href="{% url 'lista_cargos' %}">
+            ← Volver al listado
+        </a>
+    </section>
+
+    <section class="data-panel">
+        <form method="post" class="crud-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            {{ form.as_p }}
+
+            <div class="form-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                <button type="submit" class="btn btn-primary">Actualizar cambios</button>
+                <a href="{% url 'lista_cargos' %}" class="btn btn-ghost">Cancelar</a>
+            </div>
+        </form>
+    </section>
+>>>>>>> e768cbb149be3c238a057d6937df43cc5cbd239f
 {% endblock %}
