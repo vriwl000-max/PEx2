@@ -1,4 +1,91 @@
-{% load static %}<!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}TalentHub RRHH{% endblock %}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="{% static 'css/estilos.css' %}">{% block extra_css %}{% endblock %}</head>
-<body><div class="app-shell"><aside class="sidebar"><a class="brand" href="{% url 'home' %}"><span class="brand-mark">✣</span><span><b>TalentHub RRHH</b><small>Gestión de Talento Humano</small></span></a><nav class="side-nav"><span class="nav-caption">PLATAFORMA</span><a class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}"><span>▦</span> Inicio</a><span class="nav-caption">GESTIÓN</span><a class="{% if modulo == 'departamentos' %}active{% endif %}" href="{% url 'listado' 'departamentos' %}"><span>⌘</span> Departamentos</a><a class="{% if modulo == 'cargos' %}active{% endif %}" href="{% url 'listado' 'cargos' %}"><span>▤</span> Cargos</a><a class="{% if modulo == 'contratos' %}active{% endif %}" href="{% url 'listado' 'contratos' %}"><span>▧</span> Contratos</a><a class="{% if modulo == 'asistencias' %}active{% endif %}" href="{% url 'listado' 'asistencias' %}"><span>◷</span> Asistencias</a></nav><div class="sidebar-user"><span class="avatar">AM</span><span><b>Administrador RRHH</b><small>Panel administrativo</small></span></div></aside>
-<div class="main-area"><header class="topbar"><div class="crumb">⌂ <span>/</span> Plataforma{% if titulo %}<span>/</span><b>{{ titulo }}</b>{% endif %}</div><div class="top-actions"><span class="online-dot"></span><span>En línea</span><span class="top-avatar">A</span></div></header><main class="content">{% if messages %}{% for message in messages %}<div class="alert {{ message.tags }}">{{ message }}</div>{% endfor %}{% endif %}{% block content %}{% endblock %}</main><footer>TalentHub RRHH · Gestión inteligente de talento humano</footer></div></div><script src="{% static 'js/app.js' %}"></script>{% block extra_js %}{% endblock %}</body></html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}TalentHub RRHH{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        {% block extra_css %}{% endblock %}
+    </head>
+    <body>
+        <div class="app-shell">
+            <aside class="sidebar">
+                <a class="brand" href="{% url 'home' %}">
+                    <span class="brand-mark" aria-hidden="true">✣</span>
+                    <span>
+                        <b>TalentHub RRHH</b>
+                        <small>Gestión de Talento Humano</small>
+                    </span>
+                </a>
+
+                <nav class="side-nav" aria-label="Navegación principal">
+                    <span class="nav-caption">PLATAFORMA</span>
+                    <a class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
+                        <span aria-hidden="true">▦</span> Inicio
+                    </a>
+                    <span class="nav-caption">GESTIÓN</span>
+                    <a class="{% if modulo == 'empleados' %}active{% endif %}" href="{% url 'lista_empleados' %}">
+                        <span aria-hidden="true">👤</span> Empleados
+                    </a>
+                    <span class="nav-caption">GESTIÓN</span>
+                    <a class="{% if modulo == 'departamentos' %}active{% endif %}" href="{% url 'lista_departamentos' %}">
+                        <span aria-hidden="true">⌘</span> Departamentos
+                    </a>
+                    <a class="{% if modulo == 'cargos' %}active{% endif %}" href="{% url 'lista_cargos' %}">
+                        <span aria-hidden="true">▤</span> Cargos
+                    </a>
+                    <a class="{% if modulo == 'contratos' %}active{% endif %}" href="{% url 'lista_contratos' %}">
+                        <span aria-hidden="true">▧</span> Contratos
+                    </a>
+                    <a class="{% if modulo == 'asistencias' %}active{% endif %}" href="{% url 'lista_asistencias' %}">
+                        <span aria-hidden="true">◷</span> Asistencias
+                    </a>
+                </nav>
+
+                <div class="sidebar-user">
+                    <span class="avatar">AM</span>
+                    <span>
+                        <b>Administrador RRHH</b>
+                        <small>Panel administrativo</small>
+                    </span>
+                </div>
+            </aside>
+
+            <div class="main-area">
+                <header class="topbar">
+                    <div class="crumb">
+                        <span aria-hidden="true">⌂</span>
+                        <span>/</span>
+                        Plataforma
+                        {% if titulo %}
+                            <span>/</span>
+                            <b>{{ titulo }}</b>
+                        {% endif %}
+                    </div>
+                    <div class="top-actions">
+                        <span class="online-dot"></span>
+                        <span>En línea</span>
+                        <span class="top-avatar">A</span>
+                    </div>
+                </header>
+
+                <main class="content">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    {% block content %}{% endblock %}
+                </main>
+
+                <footer>TalentHub RRHH · Gestión inteligente de talento humano</footer>
+            </div>
+        </div>
+
+        <script src="{% static 'js/app.js' %}"></script>
+        {% block extra_js %}{% endblock %}
+    </body>
+</html>

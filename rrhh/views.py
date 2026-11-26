@@ -30,6 +30,11 @@ def crear_departamento(request):
     return render(request, 'departamentos/crear.html', {'form': form})
 
 @login_required(login_url='login')
+def lista_cargos(request):
+    cargos = Cargo.objects.filter(estado=True)
+    return render(request, 'cargos/listar.html', {'cargos': cargos})
+
+@login_required(login_url='login')
 def lista_contratos(request):
     contratos = Contrato.objects.filter(estado=True)
     return render(request, 'contratos/lista.html', {'contratos': contratos})

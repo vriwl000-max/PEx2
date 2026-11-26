@@ -1,3 +1,26 @@
-<h1>Sistema RRHH</h1>
-<a href="/empleados/">Ver Empleados</a><br>
-<a href="/departamentos/">Ver Departamentos</a>
+{% extends 'base.html' %}
+
+{% block title %}
+    Inicio | TalentHub RRHH
+{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / PLATAFORMA</div>
+            <h1>Sistema de Recursos Humanos</h1>
+            <p>Accede a los módulos de empleados y departamentos.</p>
+        </div>
+    </section>
+
+    <section class="module-grid">
+        <a href="/empleados/">
+            <b>Empleados</b>
+            <span>Consultar y administrar empleados</span>
+        </a>
+        <a href="/departamentos/">
+            <b>Departamentos</b>
+            <span>Consultar y administrar departamentos</span>
+        </a>
+    </section>
+{% endblock %}
