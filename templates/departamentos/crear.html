@@ -1,6 +1,6 @@
-<h1>Crear Departamento</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Guardar</button>
-</form>
+<h1>Departamentos</h1>
+<a href="/departamentos/crear/">Crear Departamento</a>
+<hr>
+{% for d in departamentos %}
+  <p>{{ d.nombre }}</p>
+{% endfor %}

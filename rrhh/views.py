@@ -53,7 +53,7 @@ def crear_empleado(request):
 
 def lista_departamentos(request):
     departamentos = Departamento.objects.all()
-    return render(request, 'departamentos/lista.html', {'departamentos': departamentos})
+    return render(request, 'departamentos/crear.html', {'departamentos': departamentos})
 
 def crear_departamento(request):
     form = DepartamentoForm(request.POST or None)
@@ -78,7 +78,7 @@ def lista_cargos(request):
 @login_required(login_url='login')
 def lista_contratos(request):
     contratos = Contrato.objects.filter(estado=True)
-    return render(request, 'contratos/lista.html', {'contratos': contratos})
+    return render(request, 'contratos/crear.html', {'contratos': contratos})
 
 ##############################
 #ASISTENCIA VIEWS
@@ -87,7 +87,7 @@ def lista_contratos(request):
 @login_required(login_url='login')
 def lista_asistencias(request):
     asistencias = Asistencia.objects.filter(estado=True)
-    return render(request, 'asistencias/lista.html', {'asistencias': asistencias})
+    return render(request, 'asistencias/crear.html', {'asistencias': asistencias})
 
 def editar_empleado(request, pk):
     return render(
