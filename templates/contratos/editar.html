@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Contrato | TalentHub RRHH{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / GESTIÓN / CONTRATOS</div>
+            <h1>Editar contrato</h1>
+            <p>Actualiza la información del contrato de <strong>{{ contrato.empleado }}</strong>.</p>
+        </div>
+        <a class="btn btn-ghost" href="{% url 'lista_contratos' %}">← Volver al listado</a>
+    </section>
+
+    <section class="data-panel form-panel">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="alert error">{{ form.non_field_errors }}</div>
+            {% endif %}
+
+            <div class="form-grid">
+                {% for field in form %}
+                    <div class="form-field {% if field.field.widget.input_type == 'checkbox' %}checkbox-field{% endif %}">
+                        <label for="{{ field.id_for_label }}">
+                            {{ field.label }}{% if field.field.required %}<span class="required"> *</span>{% endif %}
+                        </label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <small class="field-error">{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-footer">
+                <a class="btn btn-ghost" href="{% url 'lista_contratos' %}">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

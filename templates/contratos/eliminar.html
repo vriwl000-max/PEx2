@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Contrato | TalentHub RRHH{% endblock %}
+
+{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB / GESTIÓN / CONTRATOS</div>
+            <h1>Eliminar contrato</h1>
+            <p>Confirma si deseas desactivar este contrato laboral.</p>
+        </div>
+        <a class="btn btn-ghost" href="{% url 'lista_contratos' %}">← Volver al listado</a>
+    </section>
+
+    <section class="data-panel form-panel">
+        <div class="alert warning" style="margin-bottom:20px;">
+            Esta acción marcará el contrato como <strong>Inactivo</strong> (eliminado lógico).
+        </div>
+
+        <div class="form-grid" style="margin-bottom:18px;">
+            <div class="form-field">
+                <label>Empleado</label>
+                <div class="form-control">{{ contrato.empleado }}</div>
+            </div>
+            <div class="form-field">
+                <label>Cargo</label>
+                <div class="form-control">{{ contrato.empleado.cargo|default:"—" }}</div>
+            </div>
+            <div class="form-field">
+                <label>Tipo de contrato</label>
+                <div class="form-control">{{ contrato.get_tipo_contrato_display }}</div>
+            </div>
+            <div class="form-field">
+                <label>Salario</label>
+                <div class="form-control">${{ contrato.salario|floatformat:2 }}</div>
+            </div>
+            <div class="form-field">
+                <label>Fecha de inicio</label>
+                <div class="form-control">{{ contrato.fecha_inicio|date:"d/m/Y" }}</div>
+            </div>
+            <div class="form-field">
+                <label>Fecha de finalización</label>
+                <div class="form-control">{{ contrato.fecha_fin|date:"d/m/Y"|default:"Sin fecha fin" }}</div>
+            </div>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-footer">
+                <a class="btn btn-ghost" href="{% url 'lista_contratos' %}">Cancelar</a>
+                <button class="btn" type="submit" style="background:var(--red);border-color:var(--red);color:#fff;">
+                    Confirmar eliminación
+                </button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
