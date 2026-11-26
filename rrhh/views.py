@@ -3,6 +3,31 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Empleado, Departamento, Cargo, Contrato, Asistencia
 from .forms import RegistroUsuarioForm, EmpleadoForm, DepartamentoForm, CargoForm, ContratoForm, AsistenciaForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
+
+def login_view(request):
+
+    form = AuthenticationForm(
+        request,
+        data=request.POST or None
+    )
+
+    if request.method == 'POST':
+
+        if form.is_valid():
+
+            user = form.get_user()
+
+            login(request, user)
+
+            return redirect('home')
+
+    return render(
+        request,
+        'principal/login.html',
+        {'form': form}
+    )
 
 def home(request):
     return render(request, 'home.html')
