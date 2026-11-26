@@ -1,1 +1,24 @@
-{% extends 'base.html' %}{% block title %}Inicio | TalentHub RRHH{% endblock %}{% block content %}<section class="page-heading"><div><div class="eyebrow">TALENTHUB　/　PLATAFORMA</div><h1>Panel principal</h1><p>Resumen general de la gestión de talento humano.</p></div></section><section class="stats-grid home-stats"><a class="stat-card" href="{% url 'listado' 'departamentos' %}"><span class="stat-label">DEPARTAMENTOS</span><strong>{{ counts.departamentos }}</strong><small>Ver departamentos →</small></a><a class="stat-card" href="{% url 'listado' 'cargos' %}"><span class="stat-label">CARGOS</span><strong>{{ counts.cargos }}</strong><small>Ver cargos →</small></a><a class="stat-card" href="{% url 'listado' 'contratos' %}"><span class="stat-label">CONTRATOS</span><strong>{{ counts.contratos }}</strong><small>Ver contratos →</small></a><a class="stat-card" href="{% url 'listado' 'asistencias' %}"><span class="stat-label">ASISTENCIAS</span><strong>{{ counts.asistencias }}</strong><small>Ver asistencias →</small></a></section><section class="data-panel"><div class="panel-title"><h2>Módulos de gestión</h2><p>Selecciona un módulo para consultar o administrar sus registros.</p></div><div class="module-grid"><a href="{% url 'listado' 'departamentos' %}"><b>⌘　Departamentos</b><span>Áreas y responsables</span></a><a href="{% url 'listado' 'cargos' %}"><b>▤　Cargos</b><span>Puestos y salarios</span></a><a href="{% url 'listado' 'contratos' %}"><b>▧　Contratos</b><span>Vigencias laborales</span></a><a href="{% url 'listado' 'asistencias' %}"><b>◷　Asistencias</b><span>Control de jornada</span></a></div></section>{% endblock %}
+{% extends 'base.html' %}{% block title %}Inicio | TalentHub RRHH{% endblock %}{% block content %}
+    <section class="page-heading">
+        <div>
+            <div class="eyebrow">TALENTHUB　/　PLATAFORMA</div>
+            <h1>Panel principal</h1>
+            <p>Resumen general de la gestión de talento humano.</p></div>
+    </section>
+    <section class="stats-grid home-stats"><a class="stat-card" href="{% url 'listado' 'departamentos' %}"><span
+            class="stat-label">DEPARTAMENTOS</span><strong>{{ counts.departamentos }}</strong><small>Ver departamentos
+        →</small></a><a class="stat-card" href="{% url 'listado' 'cargos' %}"><span
+            class="stat-label">CARGOS</span><strong>{{ counts.cargos }}</strong><small>Ver cargos →</small></a><a
+            class="stat-card" href="{% url 'listado' 'contratos' %}"><span
+            class="stat-label">CONTRATOS</span><strong>{{ counts.contratos }}</strong><small>Ver contratos →</small></a><a
+            class="stat-card" href="{% url 'listado' 'asistencias' %}"><span
+            class="stat-label">ASISTENCIAS</span><strong>{{ counts.asistencias }}</strong><small>Ver asistencias
+        →</small></a></section>
+    <section class="data-panel">
+        <div class="panel-title"><h2>Módulos de gestión</h2>
+            <p>Selecciona un módulo para consultar o administrar sus registros.</p></div>
+        <div class="module-grid"><a href="{% url 'listado' 'departamentos' %}"><b>⌘　Departamentos</b><span>Áreas y responsables</span></a><a
+                href="{% url 'listado' 'cargos' %}"><b>▤　Cargos</b><span>Puestos y salarios</span></a><a
+                href="{% url 'listado' 'contratos' %}"><b>▧　Contratos</b><span>Vigencias laborales</span></a><a
+                href="{% url 'listado' 'asistencias' %}"><b>◷　Asistencias</b><span>Control de jornada</span></a></div>
+    </section>{% endblock %}

@@ -38,6 +38,18 @@ urlpatterns = [
     ),
 
     path(
+        'departamentos/<int:pk>/editar/',
+        views.editar_departamento,
+        name='editar_departamento'
+    ),
+
+    path(
+        'departamentos/<int:pk>/eliminar/',
+        views.eliminar_departamento,
+        name='eliminar_departamento'
+    ),
+
+    path(
         'cargos/',
         views.lista_cargos,
         name='lista_cargos'

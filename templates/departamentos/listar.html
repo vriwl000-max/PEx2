@@ -5,129 +5,115 @@
 {% endblock %}
 
 {% block content %}
-    <section class="page-heading">
-        <div>
-            <div class="eyebrow">TALENTHUB / GESTIÓN / DEPARTAMENTOS</div>
-            <h1>Gestión de Departamentos</h1>
-            <p>Áreas organizativas, responsables y estructura interna.</p>
-        </div>
-        <a class="btn btn-primary" href="{% url 'crear' 'departamentos' %}">
-            ＋ Nuevo departamento
-        </a>
-    </section>
 
-    <section class="stats-grid">
-        <article class="stat-card">
-            <span class="stat-label">REGISTROS ENCONTRADOS</span>
-            <strong>{{ total }}</strong>
-            <small>Coincidencias de la consulta</small>
-        </article>
-        <article class="stat-card">
-            <span class="stat-label">{{ etiqueta_secundaria }}</span>
-            <strong>{{ activos }}</strong>
-            <small>{{ ayuda_secundaria }}</small>
-        </article>
-        <article class="stat-card">
-            <span class="stat-label">PÁGINA ACTUAL</span>
-            <strong>{{ page_obj.number }}</strong>
-            <small>De {{ page_obj.paginator.num_pages|default:1 }} página(s)</small>
-        </article>
-    </section>
+<section class="page-heading">
 
-    <section class="data-panel">
-        <div class="toolbar">
-            <form class="search-form" method="get">
-                <span class="search-icon" aria-hidden="true">⌕</span>
-                <input
-                    type="search"
-                    name="q"
-                    value="{{ q }}"
-                    placeholder="Buscar departamentos por nombre, descripción..."
-                    aria-label="Buscar departamentos"
-                >
-                <button class="btn btn-search" type="submit">Buscar</button>
-                {% if q %}
-                    <a class="btn btn-ghost" href="{% url 'listado' 'departamentos' %}">
-                        Limpiar
-                    </a>
-                {% endif %}
-            </form>
-            <span class="total-chip">{{ total }} registro(s)</span>
+    <div>
+
+        <div class="eyebrow">
+            TALENTHUB / GESTIÓN / DEPARTAMENTOS
         </div>
 
-        <div class="table-scroll">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Responsable / Líder</th>
-                        <th>Estado</th>
-                        <th class="actions-head">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in page_obj %}
-                        <tr>
-                            <td>{{ item.nombre|default:"—"|truncatechars:55 }}</td>
-                            <td>{{ item.descripcion|default:"—"|truncatechars:55 }}</td>
-                            <td>{{ item.responsable|default:"—"|truncatechars:55 }}</td>
-                            <td>
-                                <span class="status-pill {% if item.estado == 'Activo' or item.estado == True %}status-active{% else %}status-muted{% endif %}">
-                                    {% if item.estado %}
-                                        Activo
-                                    {% else %}
-                                        Inactivo
-                                    {% endif %}
-                                </span>
-                            </td>
-                            <td class="row-actions">
-                                <a
-                                    class="icon-action edit-action"
-                                    href="{% url 'editar' 'departamentos' item.pk %}"
-                                    title="Editar"
-                                    aria-label="Editar departamento"
-                                >
-                                    ✎
-                                </a>
-                                <form
-                                    method="post"
-                                    action="{% url 'eliminar' 'departamentos' item.pk %}"
-                                    onsubmit="return confirm('¿Seguro que deseas eliminar este registro?')"
-                                >
-                                    {% csrf_token %}
-                                    <button
-                                        class="icon-action delete-action"
-                                        type="submit"
-                                        title="Eliminar"
-                                        aria-label="Eliminar departamento"
-                                    >
-                                        ⌫
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="5" class="empty-state">
-                                <strong>No hay registros para mostrar</strong>
-                                <span>Prueba otra búsqueda o crea un nuevo registro.</span>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+        <h1>
+            Gestión de Departamentos
+        </h1>
 
-        <div class="table-bottom">
-            <span>
-                Mostrando
-                {% if total %}
-                    {{ page_obj.start_index }}–{{ page_obj.end_index }} de
-                {% endif %}
-                {{ total }} registros
-            </span>
-            {% include 'principal/paginacion.html' %}
-        </div>
-    </section>
+        <p>
+            Áreas organizativas registradas en el sistema.
+        </p>
+
+    </div>
+
+    <a class="btn btn-primary"
+       href="{% url 'crear_departamento' %}">
+        ＋ Nuevo departamento
+    </a>
+
+</section>
+
+<section class="data-panel">
+
+    <div class="table-scroll">
+
+        <table class="data-table">
+
+            <thead>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th class="actions-head">
+                        Acciones
+                    </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for item in departamentos %}
+
+                <tr>
+
+                    <td>
+                        {{ item.nombre }}
+                    </td>
+
+                    <td>
+
+                        <span class="status-pill">
+
+                            {% if item.activo %}
+                                Activo
+                            {% else %}
+                                Inactivo
+                            {% endif %}
+
+                        </span>
+
+                    </td>
+
+                    <td class="row-actions">
+
+                        <a class="icon-action edit-action"
+                           href="#"
+                           title="Editar">
+                            ✎
+                        </a>
+
+                        <a class="icon-action delete-action"
+                           href="#"
+                           title="Eliminar">
+                            ⌫
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="3"
+                        class="empty-state">
+
+                        <strong>
+                            No hay departamentos registrados
+                        </strong>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
 {% endblock %}

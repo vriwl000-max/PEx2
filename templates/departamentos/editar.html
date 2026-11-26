@@ -8,14 +8,12 @@ Editar Departamento
 
 <div class="page-heading">
 
-    <span class="eyebrow">
-        GESTIÓN / DEPARTAMENTOS
-    </span>
-
-    <h1>Editar Departamento</h1>
+    <h1>
+        Editar Departamento
+    </h1>
 
     <p>
-        Actualiza la información del departamento seleccionado.
+        Modifica la información del departamento.
     </p>
 
 </div>
@@ -26,20 +24,22 @@ Editar Departamento
 
         {% csrf_token %}
 
-        <div class="django-form">
-            {{ form.as_p }}
-        </div>
+        {{ form.as_p }}
 
         <div class="form-actions">
 
             <a href="{% url 'lista_departamentos' %}"
                class="secondary-button">
+
                 Cancelar
+
             </a>
 
             <button type="submit"
                     class="primary-button">
+
                 Guardar Cambios
+
             </button>
 
         </div>

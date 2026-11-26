@@ -62,6 +62,58 @@ def crear_departamento(request):
         return redirect('lista_departamentos')
     return render(request, 'departamentos/crear.html', {'form': form})
 
+def editar_departamento(request, pk):
+
+    departamento = get_object_or_404(
+        Departamento,
+        pk=pk
+    )
+
+    form = DepartamentoForm(
+        request.POST or None,
+        instance=departamento
+    )
+
+    if form.is_valid():
+
+        form.save()
+
+        return redirect(
+            'lista_departamentos'
+        )
+
+    return render(
+        request,
+        'departamentos/editar.html',
+        {'form': form}
+    )
+
+def eliminar_departamento(
+    request,
+    pk
+):
+
+    departamento = get_object_or_404(
+        Departamento,
+        pk=pk
+    )
+
+    if request.method == 'POST':
+
+        departamento.delete()
+
+        return redirect(
+            'lista_departamentos'
+        )
+
+    return render(
+        request,
+        'departamentos/eliminar.html',
+        {
+            'departamento': departamento
+        }
+    )
+
 ####################################
 #CARGO VIEWS
 ################################
