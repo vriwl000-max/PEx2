@@ -1,0 +1,25 @@
+def login_view(request):
+
+    form = AuthenticationForm(
+        request,
+        data=request.POST or None
+    )
+
+    if request.method == 'POST':
+
+        if form.is_valid():
+
+            user = form.get_user()
+
+            login(
+                request,
+                user
+            )
+
+            return redirect('home')
+
+    return render(
+        request,
+        'login.html',
+        {'form': form}
+    )

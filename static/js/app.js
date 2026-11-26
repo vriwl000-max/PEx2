@@ -1,1 +1,9 @@
-document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".alert").forEach(a=>{setTimeout(()=>{a.style.transition="opacity .4s";a.style.opacity="0";setTimeout(()=>a.remove(),450)},4500)});});
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".alert").forEach(a => {
+        setTimeout(() => {
+            a.style.transition = "opacity .4s";
+            a.style.opacity = "0";
+            setTimeout(() => a.remove(), 450)
+        }, 4500)
+    });
+});
