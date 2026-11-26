@@ -58,28 +58,22 @@
         <div class="table-scroll">
             <table class="data-table">
                 <thead>
-                    <tr>
-                        <th>Cargo</th>
-                        <th>Departamento</th>
-                        <th>Salario referencial</th>
-                        <th>Estado</th>
-                        <th class="actions-head">Acciones</th>
-                    </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th class="actions-head">Acciones</th>
+                </tr>
                 </thead>
                 <tbody>
-                    {% for item in page_obj %}
+                    {% for item in cargos %}
                         <tr>
-                            <td>{{ item.nombre|default:"—"|truncatechars:55 }}</td>
-                            <td>{{ item.departamento|default:"—"|truncatechars:55 }}</td>
-                            <td>${{ item.salario_referencial|floatformat:2 }}</td>
+                            <td>{{ item.nombre }}</td>
                             <td>
-                                <span class="status-pill {% if item.estado == 'Activo' or item.estado == True %}status-active{% else %}status-muted{% endif %}">
-                                    {% if item.estado %}
-                                        Activo
-                                    {% else %}
-                                        Inactivo
-                                    {% endif %}
-                                </span>
+                                {% if item.activo %}
+                                    Activo
+                                {% else %}
+                                    Inactivo
+                                {% endif %}
                             </td>
                             <td class="row-actions">
                                 <a

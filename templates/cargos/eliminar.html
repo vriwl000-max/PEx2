@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Eliminar Cargo
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+
+    <h1>Eliminar Cargo</h1>
+
+</div>
+
+<section class="content-card">
+
+    <p>
+        ¿Deseas eliminar este cargo?
+    </p>
+
+    <strong>
+        {{ cargo.nombre }}
+    </strong>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <button type="submit"
+                class="danger-button">
+            Eliminar
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}
