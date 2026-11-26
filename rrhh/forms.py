@@ -1,23 +1,58 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import Empleado, Departamento, Cargo, Contrato, Asistencia
+from django.contrib.auth.forms import UserCreationForm
+from .models import Empleado, Departamento, Cargo, Contrato, Asistencia, Usuario
+
+################################
+#USUARIO
+#############################
+class RegistroUsuarioForm(UserCreationForm):
+    class Meta:
+        model = Usuario
+        fields = ['username', 'first_name', 'last_name', 'email', 'cedula', 'telefono', 'fecha_nacimiento', 'direccion']
+        widgets = {
+            'fecha_nacimiento': forms.DateInput(attrs={'type': 'date'}),
+        }
+
+    def clean_cedula(self):
+        cedula = self.cleaned_data.get('cedula', '')
+        if not cedula.isdigit() or len(cedula) != 10:
+            raise ValidationError("La cédula debe contener exactamente 10 dígitos numéricos.")
+        return cedula
+    
+############################
+#eMPLEADO
+##############################
 
 class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
+        exclude = ['activo', 'fecha_ingreso']
         fields = ['usuario', 'departamento', 'cargo', 'activo']
 
+#################################
+#DEPARTAMENTO
+#############################
 
 class DepartamentoForm(forms.ModelForm):
     class Meta:
         model = Departamento
+        exclude = ['estado']
         fields = ['nombre']
+
+#############################
+#CARGO
+#############################
 
 class CargoForm(forms.ModelForm):
     class Meta:
         model = Cargo
+        exclude = ['estado']
         fields = ['nombre']
 
+###########################
+#CONTRATO
+###########################
 
 class ContratoForm(forms.ModelForm):
     class Meta:
@@ -37,6 +72,9 @@ class ContratoForm(forms.ModelForm):
             raise ValidationError("La fecha de finalización no puede ser anterior a la de inicio.")
         return datos
 
+############################
+#ASISTENCIA
+###########################
 
 class AsistenciaForm(forms.ModelForm):
     class Meta:
