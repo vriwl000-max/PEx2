@@ -29,43 +29,4 @@ urlpatterns = [
     path('contratos/editar/<int:id>/', views.editar_contrato, name='editar_contrato'),
     path('contratos/eliminar/<int:id>/', views.eliminar_contrato, name='eliminar_contrato'),
 
-<<<<<<< HEAD
-
-=======
-    path(
-        'departamentos/crear/',
-        views.crear_departamento,
-        name='crear_departamento'
-    ),
-
-    path(
-        'departamentos/<int:pk>/editar/',
-        views.editar_departamento,
-        name='editar_departamento'
-    ),
-
-    path(
-        'departamentos/<int:pk>/eliminar/',
-        views.eliminar_departamento,
-        name='eliminar_departamento'
-    ),
-
-    path(
-        'cargos/',
-        views.lista_cargos,
-        name='lista_cargos'
-    ),
-
-    path(
-        'contratos/',
-        views.lista_contratos,
-        name='lista_contratos'
-    ),
-
-    path('asistencias/', views.lista_asistencias, name='lista_asistencias'),
-    path('asistencias/crear/', views.crear_asistencia, name='crear_asistencia'),
-    path('asistencias/editar/<int:id>/', views.editar_asistencia, name='editar_asistencia'),
-    path('asistencias/eliminar/<int:id>/', views.eliminar_asistencia, name='eliminar_asistencia'),
 ]
->>>>>>> f073bfcafcd4650fd803e6ea31b75c72c2b9b199
->>>>>>> da31dbbcff4d7f1543e42b3f56fb758df6e2d0e7
