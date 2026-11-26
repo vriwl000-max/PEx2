@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editar Departamento
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+
+    <h1>
+        Editar Departamento
+    </h1>
+
+    <p>
+        Modifica la información del departamento.
+    </p>
+
+</div>
+
+<section class="content-card form-card">
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="form-actions">
+
+            <a href="{% url 'lista_departamentos' %}"
+               class="secondary-button">
+
+                Cancelar
+
+            </a>
+
+            <button type="submit"
+                    class="primary-button">
+
+                Guardar Cambios
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}

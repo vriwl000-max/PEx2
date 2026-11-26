@@ -82,7 +82,7 @@ def eliminar_empleado(request, id):
 
 def lista_departamentos(request):
     departamentos = Departamento.objects.all()
-    return render(request, 'departamentos/lista.html', {'departamentos': departamentos})
+    return render(request, 'departamentos/crear.html', {'departamentos': departamentos})
 
 def crear_departamento(request):
     form = DepartamentoForm(request.POST or None)
@@ -91,8 +91,8 @@ def crear_departamento(request):
         return redirect('lista_departamentos')
     return render(request, 'departamentos/crear.html', {'form': form})
 
-def editar_departamento(request, id):
-    departamento = Departamento.objects.filter(id=id, estado=True).first()
+def editar_departamento(request, pk):
+    departamento = Departamento.objects.filter(pk=pk, estado=True).first()
     if not departamento:
         messages.error(request, "Registro no encontrado.")
         return redirect('lista_departamentos')
@@ -107,15 +107,15 @@ def editar_departamento(request, id):
     return render(request, 'departamentos/editar.html', {'form': form, 'modulo': 'departamentos'})
 
 @login_required(login_url='login')
-def eliminar_departamento(request, id):
-    departamento = Departamento.objects.filter(id=id, estado=True).first()
+def eliminar_departamento(request, pk):
+    departamento = Departamento.objects.filter(pk=pk, estado=True).first()
     if not departamento:
         messages.error(request, "Registro no encontrado.")
         return redirect('lista_departamentos')
-    else:
-        departamento.estado = False
-        departamento.save()
-        messages.success(request, "Registro eliminado correctamente.")
+
+    departamento.estado = False
+    departamento.save()
+    messages.success(request, "Registro eliminado correctamente.")
     return redirect('lista_departamentos')
 ####################################
 #CARGO VIEWS
@@ -176,7 +176,7 @@ def eliminar_cargo(request, id):
 @login_required(login_url='login')
 def lista_contratos(request):
     contratos = Contrato.objects.filter(estado=True)
-    return render(request, 'contratos/lista.html', {'contratos': contratos})
+    return render(request, 'contratos/crear.html', {'contratos': contratos})
 
 @login_required(login_url='login')
 def crear_contrato(request):

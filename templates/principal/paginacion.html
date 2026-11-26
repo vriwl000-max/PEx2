@@ -1,1 +1,13 @@
-{% if page_obj.paginator.num_pages > 1 %}<nav class="pagination" aria-label="Paginación"><span class="page-summary">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span><div class="page-links">{% if page_obj.has_previous %}<a href="?q={{ q|urlencode }}&page={{ page_obj.previous_page_number }}" aria-label="Anterior">‹ Anterior</a>{% else %}<span class="disabled">‹ Anterior</span>{% endif %}{% for n in page_obj.paginator.page_range %}{% if n == page_obj.number %}<span class="current">{{ n }}</span>{% elif n >= page_obj.number|add:'-2' and n <= page_obj.number|add:'2' %}<a href="?q={{ q|urlencode }}&page={{ n }}">{{ n }}</a>{% endif %}{% endfor %}{% if page_obj.has_next %}<a href="?q={{ q|urlencode }}&page={{ page_obj.next_page_number }}">Siguiente ›</a>{% else %}<span class="disabled">Siguiente ›</span>{% endif %}</div></nav>{% endif %}
+{% if page_obj.paginator.num_pages > 1 %}
+    <nav class="pagination" aria-label="Paginación"><span
+            class="page-summary">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+        <div class="page-links">{% if page_obj.has_previous %}
+            <a href="?q={{ q|urlencode }}&page={{ page_obj.previous_page_number }}" aria-label="Anterior">‹
+                Anterior</a>{% else %}<span class="disabled">‹ Anterior</span>{% endif %}
+            {% for n in page_obj.paginator.page_range %}{% if n == page_obj.number %}
+                <span class="current">{{ n }}</span>
+            {% elif n >= page_obj.number|add:'-2' and n <= page_obj.number|add:'2' %}
+                <a href="?q={{ q|urlencode }}&page={{ n }}">{{ n }}</a>{% endif %}{% endfor %}{% if page_obj.has_next %}
+                <a href="?q={{ q|urlencode }}&page={{ page_obj.next_page_number }}">Siguiente ›</a>{% else %}
+                <span class="disabled">Siguiente ›</span>{% endif %}</div>
+    </nav>{% endif %}

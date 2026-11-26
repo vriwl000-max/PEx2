@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Eliminar Departamento
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+
+    <h1>
+        Eliminar Departamento
+    </h1>
+
+</div>
+
+<section class="content-card">
+
+    <p>
+        ¿Deseas eliminar este departamento?
+    </p>
+
+    <h3>
+        {{ departamento.nombre }}
+    </h3>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <div class="form-actions">
+
+            <a href="{% url 'lista_departamentos' %}"
+               class="secondary-button">
+
+                Cancelar
+
+            </a>
+
+            <button type="submit"
+                    class="danger-button">
+
+                Eliminar
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}

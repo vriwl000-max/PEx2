@@ -32,16 +32,33 @@
         <div class="table-scroll">
             <table class="data-table">
                 <thead>
+<<<<<<< HEAD
+                <tr>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th class="actions-head">Acciones</th>
+                </tr>
+=======
                     <tr>
                         <th>Cargo</th>
                         <th>Descripción</th>
                         <th>Estado</th>
                         <th class="actions-head">Acciones</th>
                     </tr>
+>>>>>>> e768cbb149be3c238a057d6937df43cc5cbd239f
                 </thead>
                 <tbody>
                     {% for item in cargos %}
                         <tr>
+<<<<<<< HEAD
+                            <td>{{ item.nombre }}</td>
+                            <td>
+                                {% if item.activo %}
+                                    Activo
+                                {% else %}
+                                    Inactivo
+                                {% endif %}
+=======
                             <td>{{ item.nombre|default:"—"|truncatechars:55 }}</td>
                             <td>{{ item.descripcion|default:"Sin descripción"|truncatechars:75 }}</td>
                             <td>
@@ -52,6 +69,7 @@
                                         Inactivo
                                     {% endif %}
                                 </span>
+>>>>>>> e768cbb149be3c238a057d6937df43cc5cbd239f
                             </td>
                             <td class="row-actions">
                                 <a

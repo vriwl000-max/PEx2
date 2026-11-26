@@ -1,6 +1,38 @@
 {% extends 'base.html' %}
 
 {% block title %}
+<<<<<<< HEAD
+Editar Cargo
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+    <h1>Editar Cargo</h1>
+
+    <p>
+        Modifica la información del cargo.
+    </p>
+</div>
+
+<section class="content-card form-card">
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit"
+                class="primary-button">
+            Guardar Cambios
+        </button>
+
+    </form>
+
+</section>
+
+=======
     Editar Cargo | TalentHub RRHH
 {% endblock %}
 
@@ -34,4 +66,5 @@
             </div>
         </form>
     </section>
+>>>>>>> e768cbb149be3c238a057d6937df43cc5cbd239f
 {% endblock %}
