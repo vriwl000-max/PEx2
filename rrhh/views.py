@@ -42,12 +42,17 @@ def lista_empleados(request):
 
 def crear_empleado(request):
     form = EmpleadoForm(request.POST or None)
+
     if form.is_valid():
         form.save()
         messages.success(request, "Registro creado correctamente.")
         return redirect('lista_empleados')
+<<<<<<< Updated upstream
     if request.method == 'POST':
         messages.error(request, "Error en el formulario.")
+=======
+
+>>>>>>> Stashed changes
     return render(request, 'empleados/crear.html', {'form': form})
 
 def editar_empleado(request, id):
@@ -99,9 +104,11 @@ def lista_departamentos(request):
 
 def crear_departamento(request):
     form = DepartamentoForm(request.POST or None)
+
     if form.is_valid():
         form.save()
         return redirect('lista_departamentos')
+<<<<<<< Updated upstream
     return render(request, 'departamentos/crear.html', {'form': form})
 
 def editar_departamento(request, pk):
@@ -335,3 +342,26 @@ def eliminar_asistencia(request, id):
         return redirect('lista_asistencias')
 
     return render(request, 'asistencia/eliminar.html', {'asistencia': asistencia, 'modulo': 'asistencias'})
+=======
+
+    return render(request, 'departamentos/crear.html', {'form': form})
+
+def editar_empleado(request, pk):
+    empleado = get_object_or_404(Empleado, pk=pk)
+
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST, instance=empleado)
+
+        if form.is_valid():
+            form.save()
+            return redirect('lista_empleados')
+
+    else:
+        form = EmpleadoForm(instance=empleado)
+
+    return render(
+        request,
+        'empleados/editar.html',
+        {'form': form}
+    )
+>>>>>>> Stashed changes

@@ -184,9 +184,15 @@ html::-webkit-scrollbar-thumb {
     }
 }
 
+<<<<<<< Updated upstream
 /* =========================================
    BOTONES
    ========================================= */
+=======
+/*
+   BOTONES
+ */
+>>>>>>> Stashed changes
 
 #btnOpenCreateModal,
 #btnOpenExport,
@@ -205,17 +211,29 @@ html::-webkit-scrollbar-thumb {
     transform: translateY(-1px);
 }
 
+<<<<<<< Updated upstream
 /* =========================================
    TARJETAS DE RESUMEN
    ========================================= */
+=======
+/*
+   TARJETAS DE RESUMEN
+*/
+>>>>>>> Stashed changes
 
 main .group {
     transition: box-shadow 0.2s ease;
 }
 
+<<<<<<< Updated upstream
 /* =========================================
    RESPONSIVE: TABLETAS
    ========================================= */
+=======
+/*
+   RESPONSIVE: TABLETAS
+*/
+>>>>>>> Stashed changes
 
 @media (max-width: 1024px) {
 
@@ -228,9 +246,15 @@ main .group {
     }
 }
 
+<<<<<<< Updated upstream
 /* =========================================
    RESPONSIVE: CELULARES
    ========================================= */
+=======
+/*
+   RESPONSIVE: CELULARES
+*/
+>>>>>>> Stashed changes
 
 @media (max-width: 768px) {
 
@@ -271,9 +295,15 @@ main .group {
     }
 }
 
+<<<<<<< Updated upstream
 /* =========================================
    RESPONSIVE: CELULARES PEQUEÑOS
    ========================================= */
+=======
+/*
+   RESPONSIVE: CELULARES PEQUEÑOS
+*/
+>>>>>>> Stashed changes
 
 @media (max-width: 480px) {
 

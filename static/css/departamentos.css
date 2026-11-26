@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 /* =========================================
    TALENTHUB RRHH - DEPARTAMENTOS
    ========================================= */
+=======
+/*
+   TALENTHUB RRHH - DEPARTAMENTOS
+ */
+>>>>>>> Stashed changes
 
 /* Colores y estilos generales */
 :root {
@@ -151,9 +157,15 @@ tbody td span {
     line-height: 1.5;
 }
 
+<<<<<<< Updated upstream
 /* =========================================
    MODAL DE DEPARTAMENTOS
    ========================================= */
+=======
+/*
+   MODAL DE DEPARTAMENTOS
+*/
+>>>>>>> Stashed changes
 
 /* Oculto al iniciar la página */
 #modal-departamento {
@@ -210,7 +222,11 @@ tbody td span {
     width: 100%;
 }
 
+<<<<<<< Updated upstream
 /* =========================================
+=======
+/*
+>>>>>>> Stashed changes
    BARRA DE DESPLAZAMIENTO
    ========================================= */
 

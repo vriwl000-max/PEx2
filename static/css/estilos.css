@@ -12,22 +12,38 @@
     --sidebar-muted: #aebbc7;
     --soft: #eef3f8;
     --green: #187b62;
+<<<<<<< Updated upstream
     --red: #b7434b;
 }
 
 * {
     box-sizing: border-box;
+=======
+    --red: #b7434b
+}
+
+* {
+    box-sizing: border-box
+>>>>>>> Stashed changes
 }
 
 body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
+<<<<<<< Updated upstream
     font: 13px Inter, Arial, sans-serif;
 }
 
 .app-shell {
     min-height: 100vh;
+=======
+    font: 13px Inter, Arial, sans-serif
+}
+
+.app-shell {
+    min-height: 100vh
+>>>>>>> Stashed changes
 }
 
 .sidebar {
@@ -39,7 +55,11 @@ body {
     display: flex;
     flex-direction: column;
     padding: 24px 15px;
+<<<<<<< Updated upstream
     z-index: 5;
+=======
+    z-index: 5
+>>>>>>> Stashed changes
 }
 
 .brand {
@@ -48,7 +68,11 @@ body {
     gap: 11px;
     padding: 0 8px 32px;
     color: #fff;
+<<<<<<< Updated upstream
     text-decoration: none;
+=======
+    text-decoration: none
+>>>>>>> Stashed changes
 }
 
 .brand-mark {
@@ -59,6 +83,7 @@ body {
     color: #164458;
     display: grid;
     place-items: center;
+<<<<<<< Updated upstream
     font-size: 20px;
 }
 
@@ -71,18 +96,37 @@ body {
 
 .brand b {
     font-size: 14px;
+=======
+    font-size: 20px
+}
+
+.brand b, .brand small, .sidebar-user b, .sidebar-user small {
+    display: block
+}
+
+.brand b {
+    font-size: 14px
+>>>>>>> Stashed changes
 }
 
 .brand small {
     font-size: 10px;
     color: #aebbc7;
+<<<<<<< Updated upstream
     margin-top: 4px;
+=======
+    margin-top: 4px
+>>>>>>> Stashed changes
 }
 
 .side-nav {
     display: flex;
     flex-direction: column;
+<<<<<<< Updated upstream
     gap: 5px;
+=======
+    gap: 5px
+>>>>>>> Stashed changes
 }
 
 .nav-caption {
@@ -90,7 +134,11 @@ body {
     letter-spacing: 1.3px;
     color: #81909e;
     font-weight: 700;
+<<<<<<< Updated upstream
     padding: 13px 11px 6px;
+=======
+    padding: 13px 11px 6px
+>>>>>>> Stashed changes
 }
 
 .side-nav a {
@@ -102,12 +150,17 @@ body {
     color: #c7d0d8;
     text-decoration: none;
     font-size: 12px;
+<<<<<<< Updated upstream
     transition: .18s;
+=======
+    transition: .18s
+>>>>>>> Stashed changes
 }
 
 .side-nav a span {
     width: 18px;
     text-align: center;
+<<<<<<< Updated upstream
     font-size: 16px;
 }
 
@@ -115,6 +168,14 @@ body {
 .side-nav a.active {
     background: #315c70;
     color: #fff;
+=======
+    font-size: 16px
+}
+
+.side-nav a:hover, .side-nav a.active {
+    background: #315c70;
+    color: #fff
+>>>>>>> Stashed changes
 }
 
 .sidebar-user {
@@ -123,11 +184,18 @@ body {
     padding: 17px 7px 3px;
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     gap: 10px;
 }
 
 .avatar,
 .top-avatar {
+=======
+    gap: 10px
+}
+
+.avatar, .top-avatar {
+>>>>>>> Stashed changes
     width: 34px;
     height: 34px;
     border-radius: 50%;
@@ -136,24 +204,40 @@ body {
     background: #315c70;
     color: #dff4ff;
     font-size: 11px;
+<<<<<<< Updated upstream
     font-weight: 700;
 }
 
 .sidebar-user b {
     font-size: 11px;
+=======
+    font-weight: 700
+}
+
+.sidebar-user b {
+    font-size: 11px
+>>>>>>> Stashed changes
 }
 
 .sidebar-user small {
     font-size: 9px;
     color: #9caab6;
+<<<<<<< Updated upstream
     margin-top: 4px;
+=======
+    margin-top: 4px
+>>>>>>> Stashed changes
 }
 
 .main-area {
     margin-left: 244px;
     min-height: 100vh;
     display: flex;
+<<<<<<< Updated upstream
     flex-direction: column;
+=======
+    flex-direction: column
+>>>>>>> Stashed changes
 }
 
 .topbar {
@@ -169,36 +253,60 @@ body {
     justify-content: space-between;
     padding: 0 30px;
     color: #7b8794;
+<<<<<<< Updated upstream
     font-size: 11px;
+=======
+    font-size: 11px
+>>>>>>> Stashed changes
 }
 
 .crumb {
     display: flex;
     gap: 10px;
+<<<<<<< Updated upstream
     align-items: center;
 }
 
 .crumb b {
     color: var(--primary);
+=======
+    align-items: center
+}
+
+.crumb b {
+    color: var(--primary)
+>>>>>>> Stashed changes
 }
 
 .top-actions {
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     gap: 9px;
+=======
+    gap: 9px
+>>>>>>> Stashed changes
 }
 
 .online-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
+<<<<<<< Updated upstream
     background: #219c76;
+=======
+    background: #219c76
+>>>>>>> Stashed changes
 }
 
 .top-avatar {
     width: 28px;
     height: 28px;
+<<<<<<< Updated upstream
     margin-left: 12px;
+=======
+    margin-left: 12px
+>>>>>>> Stashed changes
 }
 
 .content {
@@ -206,7 +314,11 @@ body {
     max-width: 1550px;
     padding: 30px 34px 40px;
     margin: 0 auto;
+<<<<<<< Updated upstream
     flex: 1;
+=======
+    flex: 1
+>>>>>>> Stashed changes
 }
 
 .page-heading {
@@ -214,7 +326,11 @@ body {
     align-items: flex-end;
     justify-content: space-between;
     gap: 20px;
+<<<<<<< Updated upstream
     margin-bottom: 24px;
+=======
+    margin-bottom: 24px
+>>>>>>> Stashed changes
 }
 
 .eyebrow {
@@ -222,21 +338,33 @@ body {
     letter-spacing: 1.3px;
     color: #738191;
     font-weight: 700;
+<<<<<<< Updated upstream
     margin-bottom: 9px;
+=======
+    margin-bottom: 9px
+>>>>>>> Stashed changes
 }
 
 .page-heading h1 {
     font-size: 26px;
     letter-spacing: -.8px;
     margin: 0 0 7px;
+<<<<<<< Updated upstream
     font-weight: 700;
+=======
+    font-weight: 700
+>>>>>>> Stashed changes
 }
 
 .page-heading p {
     font-size: 12px;
     color: var(--muted);
     margin: 0;
+<<<<<<< Updated upstream
     max-width: 700px;
+=======
+    max-width: 700px
+>>>>>>> Stashed changes
 }
 
 .btn {
@@ -252,17 +380,26 @@ body {
     justify-content: center;
     cursor: pointer;
     white-space: nowrap;
+<<<<<<< Updated upstream
     transition: .18s;
+=======
+    transition: .18s
+>>>>>>> Stashed changes
 }
 
 .btn:hover {
     transform: translateY(-1px);
+<<<<<<< Updated upstream
     box-shadow: 0 3px 10px #152d3b12;
+=======
+    box-shadow: 0 3px 10px #152d3b12
+>>>>>>> Stashed changes
 }
 
 .btn-primary {
     background: var(--primary);
     border-color: var(--primary);
+<<<<<<< Updated upstream
     color: #fff;
 }
 
@@ -272,13 +409,30 @@ body {
 
 .btn-ghost {
     background: #f8fafc;
+=======
+    color: #fff
+}
+
+.btn-primary:hover {
+    background: var(--primary2)
+}
+
+.btn-ghost {
+    background: #f8fafc
+>>>>>>> Stashed changes
 }
 
 .stats-grid {
     display: grid;
+<<<<<<< Updated upstream
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 14px;
     margin: 0 0 20px;
+=======
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 0 0 20px
+>>>>>>> Stashed changes
 }
 
 .stat-card {
@@ -293,25 +447,41 @@ body {
     align-items: flex-start;
     gap: 6px;
     text-decoration: none;
+<<<<<<< Updated upstream
     color: inherit;
+=======
+    color: inherit
+>>>>>>> Stashed changes
 }
 
 .stat-label {
     font-size: 9px;
     letter-spacing: .9px;
     color: #7c8794;
+<<<<<<< Updated upstream
     font-weight: 700;
+=======
+    font-weight: 700
+>>>>>>> Stashed changes
 }
 
 .stat-card strong {
     font-size: 25px;
     letter-spacing: -.7px;
+<<<<<<< Updated upstream
     color: var(--primary);
+=======
+    color: var(--primary)
+>>>>>>> Stashed changes
 }
 
 .stat-card small {
     font-size: 10px;
+<<<<<<< Updated upstream
     color: #84909c;
+=======
+    color: #84909c
+>>>>>>> Stashed changes
 }
 
 .data-panel {
@@ -319,7 +489,11 @@ body {
     border: 1px solid var(--line);
     border-radius: 11px;
     box-shadow: 0 2px 10px #1c344108;
+<<<<<<< Updated upstream
     overflow: hidden;
+=======
+    overflow: hidden
+>>>>>>> Stashed changes
 }
 
 .toolbar {
@@ -329,7 +503,11 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 15px;
+<<<<<<< Updated upstream
     border-bottom: 1px solid var(--line);
+=======
+    border-bottom: 1px solid var(--line)
+>>>>>>> Stashed changes
 }
 
 .search-form {
@@ -337,12 +515,20 @@ body {
     align-items: center;
     gap: 8px;
     max-width: 620px;
+<<<<<<< Updated upstream
     width: 100%;
+=======
+    width: 100%
+>>>>>>> Stashed changes
 }
 
 .search-icon {
     font-size: 22px;
+<<<<<<< Updated upstream
     color: #83909d;
+=======
+    color: #83909d
+>>>>>>> Stashed changes
 }
 
 .search-form input {
@@ -354,6 +540,7 @@ body {
     padding: 0 12px;
     font: 11px Inter;
     outline: none;
+<<<<<<< Updated upstream
     background: #fff;
 }
 
@@ -361,11 +548,23 @@ body {
 .form-control:focus {
     border-color: #6b9aaf;
     box-shadow: 0 0 0 3px #16445814;
+=======
+    background: #fff
+}
+
+.search-form input:focus, .form-control:focus {
+    border-color: #6b9aaf;
+    box-shadow: 0 0 0 3px #16445814
+>>>>>>> Stashed changes
 }
 
 .btn-search {
     height: 37px;
+<<<<<<< Updated upstream
     padding: 0 17px;
+=======
+    padding: 0 17px
+>>>>>>> Stashed changes
 }
 
 .total-chip {
@@ -374,17 +573,29 @@ body {
     padding: 7px 10px;
     border-radius: 20px;
     font-size: 10px;
+<<<<<<< Updated upstream
     white-space: nowrap;
 }
 
 .table-scroll {
     overflow-x: auto;
+=======
+    white-space: nowrap
+}
+
+.table-scroll {
+    overflow-x: auto
+>>>>>>> Stashed changes
 }
 
 .data-table {
     width: 100%;
     border-collapse: collapse;
+<<<<<<< Updated upstream
     min-width: 720px;
+=======
+    min-width: 720px
+>>>>>>> Stashed changes
 }
 
 .data-table th {
@@ -396,7 +607,11 @@ body {
     letter-spacing: .65px;
     text-transform: uppercase;
     font-weight: 700;
+<<<<<<< Updated upstream
     white-space: nowrap;
+=======
+    white-space: nowrap
+>>>>>>> Stashed changes
 }
 
 .data-table td {
@@ -404,6 +619,7 @@ body {
     border-bottom: 1px solid #edf0f4;
     font-size: 11px;
     color: #344250;
+<<<<<<< Updated upstream
     vertical-align: middle;
 }
 
@@ -417,16 +633,39 @@ body {
 
 .actions-head {
     width: 95px;
+=======
+    vertical-align: middle
+}
+
+.data-table tbody tr:hover {
+    background: #fbfcfe
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: 0
+}
+
+.actions-head {
+    width: 95px
+>>>>>>> Stashed changes
 }
 
 .row-actions {
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     gap: 7px;
 }
 
 .row-actions form {
     margin: 0;
+=======
+    gap: 7px
+}
+
+.row-actions form {
+    margin: 0
+>>>>>>> Stashed changes
 }
 
 .icon-action {
@@ -439,6 +678,7 @@ body {
     place-items: center;
     cursor: pointer;
     text-decoration: none;
+<<<<<<< Updated upstream
     font-size: 14px;
 }
 
@@ -452,6 +692,21 @@ body {
 
 .icon-action:hover {
     background: #f0f5f8;
+=======
+    font-size: 14px
+}
+
+.edit-action {
+    color: #22637b
+}
+
+.delete-action {
+    color: var(--red)
+}
+
+.icon-action:hover {
+    background: #f0f5f8
+>>>>>>> Stashed changes
 }
 
 .status-pill {
@@ -461,29 +716,49 @@ body {
     font-size: 9px;
     font-weight: 700;
     background: #e7f5ef;
+<<<<<<< Updated upstream
     color: #167451;
+=======
+    color: #167451
+>>>>>>> Stashed changes
 }
 
 .status-muted {
     background: #f0f1f3;
+<<<<<<< Updated upstream
     color: #747d86;
+=======
+    color: #747d86
+>>>>>>> Stashed changes
 }
 
 .empty-state {
     height: 125px;
     text-align: center !important;
+<<<<<<< Updated upstream
     color: #82909d !important;
 }
 
 .empty-state strong,
 .empty-state span {
     display: block;
+=======
+    color: #82909d !important
+}
+
+.empty-state strong, .empty-state span {
+    display: block
+>>>>>>> Stashed changes
 }
 
 .empty-state span {
     margin-top: 6px;
     font-size: 10px;
+<<<<<<< Updated upstream
     color: #98a2ad;
+=======
+    color: #98a2ad
+>>>>>>> Stashed changes
 }
 
 .table-bottom {
@@ -494,73 +769,129 @@ body {
     padding: 13px 18px;
     border-top: 1px solid var(--line);
     font-size: 10px;
+<<<<<<< Updated upstream
     color: #83909c;
+=======
+    color: #83909c
+>>>>>>> Stashed changes
 }
 
 .pagination {
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     gap: 12px;
 }
 
 .page-summary {
     display: none;
+=======
+    gap: 12px
+}
+
+.page-summary {
+    display: none
+>>>>>>> Stashed changes
 }
 
 .page-links {
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     gap: 5px;
 }
 
 .page-links a,
 .page-links span {
+=======
+    gap: 5px
+}
+
+.page-links a, .page-links span {
+>>>>>>> Stashed changes
     padding: 7px 9px;
     border-radius: 6px;
     text-decoration: none;
     color: #5b6875;
+<<<<<<< Updated upstream
     font-size: 10px;
+=======
+    font-size: 10px
+>>>>>>> Stashed changes
 }
 
 .page-links a {
     border: 1px solid #e7ebef;
+<<<<<<< Updated upstream
     background: #fff;
+=======
+    background: #fff
+>>>>>>> Stashed changes
 }
 
 .page-links .current {
     background: var(--primary);
+<<<<<<< Updated upstream
     color: #fff;
 }
 
 .page-links .disabled {
     color: #b5bdc5;
+=======
+    color: #fff
+}
+
+.page-links .disabled {
+    color: #b5bdc5
+>>>>>>> Stashed changes
 }
 
 .form-panel {
     padding: 23px;
+<<<<<<< Updated upstream
     max-width: 1000px;
+=======
+    max-width: 1000px
+>>>>>>> Stashed changes
 }
 
 .form-grid {
     display: grid;
+<<<<<<< Updated upstream
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
+=======
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap: 18px
+>>>>>>> Stashed changes
 }
 
 .form-field {
     display: flex;
     flex-direction: column;
+<<<<<<< Updated upstream
     gap: 7px;
+=======
+    gap: 7px
+>>>>>>> Stashed changes
 }
 
 .form-field label {
     font-size: 11px;
     font-weight: 600;
+<<<<<<< Updated upstream
     color: #43515e;
 }
 
 .required {
     color: #c0444b;
+=======
+    color: #43515e
+}
+
+.required {
+    color: #c0444b
+>>>>>>> Stashed changes
 }
 
 .form-control {
@@ -572,26 +903,46 @@ body {
     background: #fff;
     color: #263542;
     font: 11px Inter;
+<<<<<<< Updated upstream
     outline: none;
+=======
+    outline: none
+>>>>>>> Stashed changes
 }
 
 .form-field textarea.form-control {
     min-height: 84px;
+<<<<<<< Updated upstream
     resize: vertical;
 }
 
 .checkbox-field {
     justify-content: center;
+=======
+    resize: vertical
+}
+
+.checkbox-field {
+    justify-content: center
+>>>>>>> Stashed changes
 }
 
 .checkbox-field .form-control {
     width: auto;
+<<<<<<< Updated upstream
     min-height: auto;
+=======
+    min-height: auto
+>>>>>>> Stashed changes
 }
 
 .field-error {
     color: #b7434b;
+<<<<<<< Updated upstream
     font-size: 10px;
+=======
+    font-size: 10px
+>>>>>>> Stashed changes
 }
 
 .form-footer {
@@ -600,55 +951,96 @@ body {
     gap: 9px;
     border-top: 1px solid var(--line);
     padding-top: 18px;
+<<<<<<< Updated upstream
     margin-top: 24px;
+=======
+    margin-top: 24px
+>>>>>>> Stashed changes
 }
 
 .alert {
     padding: 11px 14px;
     border-radius: 7px;
     margin-bottom: 15px;
+<<<<<<< Updated upstream
     font-size: 11px;
+=======
+    font-size: 11px
+>>>>>>> Stashed changes
 }
 
 .alert.success {
     background: #e8f6ef;
+<<<<<<< Updated upstream
     color: #176744;
+=======
+    color: #176744
+>>>>>>> Stashed changes
 }
 
 .alert.error {
     background: #fff0f0;
+<<<<<<< Updated upstream
     color: #a52e39;
+=======
+    color: #a52e39
+>>>>>>> Stashed changes
 }
 
 .alert.warning {
     background: #fff7e6;
+<<<<<<< Updated upstream
     color: #8c6117;
 }
 
 .panel-title {
     padding: 20px 20px 0;
+=======
+    color: #8c6117
+}
+
+.panel-title {
+    padding: 20px 20px 0
+>>>>>>> Stashed changes
 }
 
 .panel-title h2 {
     margin: 0 0 5px;
+<<<<<<< Updated upstream
     font-size: 16px;
+=======
+    font-size: 16px
+>>>>>>> Stashed changes
 }
 
 .panel-title p {
     margin: 0;
     color: var(--muted);
+<<<<<<< Updated upstream
     font-size: 11px;
 }
 
 .home-stats .stat-card {
     min-height: 125px;
+=======
+    font-size: 11px
+}
+
+.home-stats .stat-card {
+    min-height: 125px
+>>>>>>> Stashed changes
 }
 
 .module-grid {
     padding: 18px;
     display: grid;
+<<<<<<< Updated upstream
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
+=======
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap: 12px
+>>>>>>> Stashed changes
 }
 
 .module-grid a {
@@ -659,6 +1051,7 @@ body {
     color: var(--primary);
     display: flex;
     flex-direction: column;
+<<<<<<< Updated upstream
     gap: 7px;
 }
 
@@ -668,11 +1061,26 @@ body {
 
 .module-grid b {
     font-size: 12px;
+=======
+    gap: 7px
+}
+
+.module-grid a:hover {
+    background: #f5f8fa
+}
+
+.module-grid b {
+    font-size: 12px
+>>>>>>> Stashed changes
 }
 
 .module-grid span {
     font-size: 10px;
+<<<<<<< Updated upstream
     color: #7b8793;
+=======
+    color: #7b8793
+>>>>>>> Stashed changes
 }
 
 footer {
@@ -680,11 +1088,16 @@ footer {
     padding: 17px;
     color: #9aa4af;
     font-size: 9px;
+<<<<<<< Updated upstream
     border-top: 1px solid var(--line);
+=======
+    border-top: 1px solid var(--line)
+>>>>>>> Stashed changes
 }
 
 @media (max-width: 1050px) {
     .content {
+<<<<<<< Updated upstream
         padding: 24px;
     }
 
@@ -698,6 +1111,21 @@ footer {
 
     .main-area {
         margin-left: 215px;
+=======
+        padding: 24px
+    }
+
+    .stats-grid {
+        grid-template-columns:repeat(2, minmax(0, 1fr))
+    }
+
+    .sidebar {
+        width: 215px
+    }
+
+    .main-area {
+        margin-left: 215px
+>>>>>>> Stashed changes
     }
 }
 
@@ -705,15 +1133,24 @@ footer {
     .sidebar {
         position: relative;
         width: 100%;
+<<<<<<< Updated upstream
         padding: 13px;
     }
 
     .brand {
         padding-bottom: 12px;
+=======
+        padding: 13px
+    }
+
+    .brand {
+        padding-bottom: 12px
+>>>>>>> Stashed changes
     }
 
     .side-nav {
         display: grid;
+<<<<<<< Updated upstream
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 3px;
     }
@@ -721,10 +1158,20 @@ footer {
     .nav-caption {
         grid-column: 1 / -1;
         padding: 8px 9px 3px;
+=======
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap: 3px
+    }
+
+    .nav-caption {
+        grid-column: 1/-1;
+        padding: 8px 9px 3px
+>>>>>>> Stashed changes
     }
 
     .side-nav a {
         padding: 9px;
+<<<<<<< Updated upstream
         font-size: 11px;
     }
 
@@ -734,19 +1181,39 @@ footer {
 
     .main-area {
         margin: 0;
+=======
+        font-size: 11px
+    }
+
+    .sidebar-user {
+        display: none
+    }
+
+    .main-area {
+        margin: 0
+>>>>>>> Stashed changes
     }
 
     .topbar {
         height: 48px;
+<<<<<<< Updated upstream
         padding: 0 15px;
     }
 
     .content {
         padding: 18px 13px 28px;
+=======
+        padding: 0 15px
+    }
+
+    .content {
+        padding: 18px 13px 28px
+>>>>>>> Stashed changes
     }
 
     .page-heading {
         align-items: flex-start;
+<<<<<<< Updated upstream
         flex-direction: column;
     }
 
@@ -760,28 +1227,60 @@ footer {
 
     .stats-grid {
         gap: 9px;
+=======
+        flex-direction: column
+    }
+
+    .page-heading h1 {
+        font-size: 22px
+    }
+
+    .page-heading .btn {
+        align-self: stretch
+    }
+
+    .stats-grid {
+        gap: 9px
+>>>>>>> Stashed changes
     }
 
     .stat-card {
         padding: 13px;
+<<<<<<< Updated upstream
         min-height: 94px;
     }
 
     .stat-card strong {
         font-size: 21px;
+=======
+        min-height: 94px
+    }
+
+    .stat-card strong {
+        font-size: 21px
+>>>>>>> Stashed changes
     }
 
     .toolbar {
         align-items: stretch;
+<<<<<<< Updated upstream
         flex-direction: column;
     }
 
     .search-form {
         max-width: none;
+=======
+        flex-direction: column
+    }
+
+    .search-form {
+        max-width: none
+>>>>>>> Stashed changes
     }
 
     .table-bottom {
         align-items: flex-start;
+<<<<<<< Updated upstream
         flex-direction: column;
     }
 
@@ -954,3 +1453,24 @@ footer {
 .secondary-button:hover {
     background: #d1d5db;
 }
+=======
+        flex-direction: column
+    }
+
+    .form-grid {
+        grid-template-columns:1fr
+    }
+
+    .form-panel {
+        padding: 16px
+    }
+
+    .module-grid {
+        grid-template-columns:1fr
+    }
+
+    .top-avatar {
+        display: none
+    }
+}
+>>>>>>> Stashed changes

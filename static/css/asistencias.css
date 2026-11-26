@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 /* ==========================================
    TALENTHUB RRHH - MODULO DE ASISTENCIAS
    ========================================== */
+=======
+/*
+   TALENTHUB RRHH - MODULO DE ASISTENCIAS
+ */
+>>>>>>> Stashed changes
 
 /* Configuración general */
 :root {
@@ -41,9 +47,13 @@ body {
     border-radius: 10px;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    BARRA LATERAL
    ========================================== */
+=======
+/* BARRA LATERAL */
+>>>>>>> Stashed changes
 
 aside {
     scrollbar-width: thin;
@@ -64,9 +74,13 @@ aside nav a[aria-current="page"] {
     color: #ffffff;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    BARRA SUPERIOR
    ========================================== */
+=======
+/* BARRA SUPERIOR*/
+>>>>>>> Stashed changes
 
 body > div > header {
     border-bottom: 1px solid rgba(193, 199, 204, 0.25);
@@ -80,9 +94,13 @@ body > div > header input:focus {
     box-shadow: 0 0 0 2px rgba(22, 68, 88, 0.12);
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    CONTENIDO PRINCIPAL
    ========================================== */
+=======
+/* CONTENIDO PRINCIPAL*/
+>>>>>>> Stashed changes
 
 main {
     min-height: 100vh;
@@ -97,9 +115,13 @@ main h1 {
     line-height: 1.3;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    TARJETAS DE INDICADORES
    ========================================== */
+=======
+/* TARJETAS DE INDICADORES*/
+>>>>>>> Stashed changes
 
 main section > div {
     transition: box-shadow 0.25s ease,
@@ -110,9 +132,13 @@ main section > div:hover {
     box-shadow: 0 5px 18px rgba(22, 68, 88, 0.07);
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    BOTONES
    ========================================== */
+=======
+/*BOTONES*/
+>>>>>>> Stashed changes
 
 button {
     cursor: pointer;
@@ -145,9 +171,13 @@ button:disabled {
     background-color: #dde2f0;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    FILTROS Y BÚSQUEDA
    ========================================== */
+=======
+/*FILTROS Y BÚSQUEDA */
+>>>>>>> Stashed changes
 
 .filter-chip {
     white-space: nowrap;
@@ -163,9 +193,13 @@ button:disabled {
     border-color: var(--attendance-primary);
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    TABLA DE ASISTENCIAS
    ========================================== */
+=======
+/*TABLA DE ASISTENCIAS */
+>>>>>>> Stashed changes
 
 table {
     width: 100%;
@@ -211,9 +245,13 @@ tbody button {
     color: var(--attendance-danger);
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    ETIQUETAS DE ESTADO
    ========================================== */
+=======
+/*  ETIQUETAS DE ESTADO*/
+>>>>>>> Stashed changes
 
 .bg-error-container {
     color: #93000a;
@@ -223,9 +261,13 @@ tbody button {
     color: var(--attendance-danger);
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    MODALES
    ========================================== */
+=======
+/*  MODALES */
+>>>>>>> Stashed changes
 
 #crud-modal-backdrop,
 #delete-modal-backdrop {
@@ -284,9 +326,13 @@ tbody button {
     background-color: #93000a;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    NOTIFICACIONES TOAST
    ========================================== */
+=======
+/* NOTIFICACIONES TOAST*/
+>>>>>>> Stashed changes
 
 #toast {
     max-width: calc(100vw - 32px);
@@ -297,17 +343,25 @@ tbody button {
     line-height: 1.4;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    TARJETA DE POLÍTICAS
    ========================================== */
+=======
+/* TARJETA DE POLÍTICAS*/
+>>>>>>> Stashed changes
 
 main a {
     transition: all 0.2s ease;
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    RESPONSIVE - TABLETS
    ========================================== */
+=======
+/* RESPONSIVE - TABLETS*/
+>>>>>>> Stashed changes
 
 @media (max-width: 1024px) {
 
@@ -328,9 +382,13 @@ main a {
     }
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    RESPONSIVE - CELULARES
    ========================================== */
+=======
+/* RESPONSIVE - CELULARES*/
+>>>>>>> Stashed changes
 
 @media (max-width: 768px) {
 
@@ -403,9 +461,13 @@ main a {
     }
 }
 
+<<<<<<< Updated upstream
 /* ==========================================
    RESPONSIVE - CELULARES PEQUEÑOS
    ========================================== */
+=======
+/* RESPONSIVE - CELULARES PEQUEÑOS*/
+>>>>>>> Stashed changes
 
 @media (max-width: 480px) {
 
