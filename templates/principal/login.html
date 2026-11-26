@@ -19,30 +19,33 @@
 
 <body>
 
-    <div class="login-container">
+        <div class="login-page">
 
-        <h1>
-            TalentHub RRHH
-        </h1>
+            <div class="login-card">
 
-        <p>
-            Gestión de Talento Humano
-        </p>
+                <h1>TalentHub RRHH</h1>
 
-        <form method="post">
+                <p>
+                    Sistema de Gestión de Talento Humano
+                </p>
 
-            {% csrf_token %}
+                <form method="post">
 
-            {{ form.as_p }}
+                    {% csrf_token %}
 
-            <button type="submit">
-                Iniciar Sesión
-            </button>
+                    {{ form.as_p }}
 
-        </form>
+                    <button type="submit">
+                        Iniciar Sesión
+                    </button>
 
-    </div>
+                </form>
 
-</body>
+            </div>
+
+        </div>
+
+
+    </body>
 
 </html>
