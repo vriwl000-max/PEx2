@@ -50,7 +50,7 @@ class Contrato(models.Model):
     tipo_contrato = models.CharField(max_length=20, choices=TIPOS_CONTRATO)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField(null=True, blank=True)
-    salario = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'), message="El salario debe ser mayor a cero.")])
+    salario = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('400.00'), message="El salario debe ser mayor a cero.")])
     estado = models.BooleanField(default=True)  # Eliminado lógico
 
     def __str__(self):
