@@ -66,15 +66,28 @@ def editar_empleado(request, id):
     return render(request, 'empleados/editar.html', {'form': form, 'modulo': 'empleados'})
 
 @login_required(login_url='login')
-def eliminar_empleado(request, id):
-    empleado = Empleado.objects.filter(id=id, activo=True).first()
-    if not empleado:
-        messages.error(request, "Registro no encontrado.")
-    else:
-        empleado.activo = False
-        empleado.save()
-        messages.success(request, "Registro eliminado correctamente.")
-    return redirect('lista_empleados')
+def eliminar_empleado(request, pk):
+
+    empleado = get_object_or_404(
+        Empleado,
+        pk=pk
+    )
+
+    if request.method == 'POST':
+
+        empleado.delete()
+
+        return redirect(
+            'lista_empleados'
+        )
+
+    return render(
+        request,
+        'empleados/eliminar.html',
+        {
+            'empleado': empleado
+        }
+    )
 
 #################################
 #DEPARTAMENTO VIEWS
@@ -91,7 +104,6 @@ def crear_departamento(request):
         return redirect('lista_departamentos')
     return render(request, 'departamentos/crear.html', {'form': form})
 
-<<<<<<< HEAD
 def editar_departamento(request, pk):
 
     departamento = get_object_or_404(
@@ -144,34 +156,6 @@ def eliminar_departamento(
         }
     )
 
-=======
-def editar_departamento(request, id):
-    departamento = Departamento.objects.filter(id=id, estado=True).first()
-    if not departamento:
-        messages.error(request, "Registro no encontrado.")
-        return redirect('lista_departamentos')
-
-    form = DepartamentoForm(request.POST or None, instance=departamento)
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Registro actualizado correctamente.")
-        return redirect('lista_departamentos')
-    if request.method == 'POST':
-        messages.error(request, "Error en el formulario.")
-    return render(request, 'departamentos/editar.html', {'form': form, 'modulo': 'departamentos'})
-
-@login_required(login_url='login')
-def eliminar_departamento(request, id):
-    departamento = Departamento.objects.filter(id=id, estado=True).first()
-    if not departamento:
-        messages.error(request, "Registro no encontrado.")
-        return redirect('lista_departamentos')
-    else:
-        departamento.estado = False
-        departamento.save()
-        messages.success(request, "Registro eliminado correctamente.")
-    return redirect('lista_departamentos')
->>>>>>> e768cbb149be3c238a057d6937df43cc5cbd239f
 ####################################
 #CARGO VIEWS
 ################################

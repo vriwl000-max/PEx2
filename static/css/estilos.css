@@ -914,3 +914,43 @@ footer {
 .primary-button:hover {
  background: #002f37;
 }
+
+.content-card {
+    background: white;
+
+    border: 1px solid var(--line);
+
+    border-radius: 10px;
+
+    padding: 24px;
+
+    box-shadow: 0 2px 10px #1c344108;
+}
+
+.form-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.secondary-button {
+    background: #e5e7eb;
+
+    color: #111827;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 12px 18px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: #d1d5db;
+}

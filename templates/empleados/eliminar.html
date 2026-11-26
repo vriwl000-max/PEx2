@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Eliminar Empleado | TalentHub RRHH
+{% endblock %}
+
+{% block content %}
+
+<div class="page-heading">
+
+    <span class="eyebrow">
+        TALENTHUB / GESTIÓN / EMPLEADOS
+    </span>
+
+    <h1>
+        Eliminar Empleado
+    </h1>
+
+    <p>
+        Confirma la eliminación del empleado seleccionado.
+    </p>
+
+</div>
+
+<section class="content-card">
+
+    <div class="alert warning">
+
+        <strong>Atención:</strong>
+
+        Esta acción eliminará permanentemente el registro del empleado.
+
+    </div>
+
+    <h3>
+        {{ empleado }}
+    </h3>
+
+    <p>
+        ¿Estás seguro de que deseas eliminar este empleado?
+    </p>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <div class="form-actions">
+
+            <a href="{% url 'lista_empleados' %}"
+               class="secondary-button">
+
+                Cancelar
+
+            </a>
+
+            <button type="submit"
+                    class="danger-button">
+
+                Eliminar Empleado
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}
