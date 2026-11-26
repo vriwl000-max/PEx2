@@ -36,4 +36,22 @@ urlpatterns = [
         views.crear_departamento,
         name='crear_departamento'
     ),
+
+    path(
+        'cargos/',
+        views.lista_cargos,
+        name='lista_cargos'
+    ),
+
+    path(
+        'contratos/',
+        views.lista_contratos,
+        name='lista_contratos'
+    ),
+
+    path(
+        'asistencias/',
+        views.lista_asistencias,
+        name='lista_asistencias'
+    ),
 ]

@@ -1,25 +1,48 @@
-def login_view(request):
+{% load static %}
 
-    form = AuthenticationForm(
-        request,
-        data=request.POST or None
-    )
+<!DOCTYPE html>
+<html lang="es">
 
-    if request.method == 'POST':
+<head>
+    <meta charset="UTF-8">
 
-        if form.is_valid():
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-            user = form.get_user()
+    <title>
+        Iniciar Sesión | TalentHub
+    </title>
 
-            login(
-                request,
-                user
-            )
+    <link rel="stylesheet"
+          href="{% static 'css/estilos.css' %}">
+</head>
 
-            return redirect('home')
+<body>
 
-    return render(
-        request,
-        'login.html',
-        {'form': form}
-    )
+    <div class="login-container">
+
+        <h1>
+            TalentHub RRHH
+        </h1>
+
+        <p>
+            Gestión de Talento Humano
+        </p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Iniciar Sesión
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

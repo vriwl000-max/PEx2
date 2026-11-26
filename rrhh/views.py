@@ -19,10 +19,7 @@ def login_view(request):
 
             user = form.get_user()
 
-            login(
-                request,
-                user
-            )
+            login(request, user)
 
             return redirect('home')
 
